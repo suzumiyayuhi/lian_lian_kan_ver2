@@ -1,9 +1,9 @@
 #include"dbConnector.h"
 #include<strstream>
-#define USER_NAME	"xroot"
-#define USER_PWD	""
+#define USER_NAME	"lianuser"
+#define USER_PWD	"lianUserPassword"
 #define DB_ACCOUNT	"liandb"
-#define DATABASE_HOST "127.0.0.1"
+#define DATABASE_HOST "173.254.200.92"
 
 bool DBCONNECTOR::Open()
 {
@@ -26,7 +26,6 @@ bool DBCONNECTOR::IsLogin(wchar_t *account, wchar_t *password)
 {
 	bool					flag =	false;
 	std::string				sqlstr;
-	sqlstr = "SELECT * FROM liandb.user";
 	std::string				strAccount;
 	std::string				strPassword;
 	char *temAccount;
@@ -49,7 +48,8 @@ bool DBCONNECTOR::IsLogin(wchar_t *account, wchar_t *password)
 	*/
 	if (strAccount.empty() || strPassword.empty())
 		return false;
-
+	//sqlstr = "SELECT * FROM liandb.user";
+	sqlstr = "select * from liandb.user where account='" + strAccount+"'";
 	Open();
 	mysql_query(&mysql, sqlstr.c_str());
 	result = mysql_store_result(&mysql);

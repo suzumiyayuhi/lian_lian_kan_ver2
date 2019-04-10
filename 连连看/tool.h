@@ -16,3 +16,4 @@ std::string receiveFrom(const char* ipAddr);
 void sendTo(const char* ipAddr, std::string str);
 std::string clientAct(std::string serverIp, std::string sendStr);
 std::string serverAct(std::string sendStr);
+bool t_Check(const char str[]);

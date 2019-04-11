@@ -332,7 +332,7 @@ LRESULT CALLBACK RegisProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 			{
 				isRegister = true;
 				MessageBox(NULL, L"µ«»Î≥…π¶¿≤~", L"ok da°Óze", 0);
-				SendMessage(hWnd, WM_DESTROY, wParam, lParam);
+				DestroyWindow(hWnd);
 			}
 			else
 			{
@@ -375,7 +375,7 @@ LRESULT CALLBACK RegisProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		else
 		{
 			delete(drawWnd);
-			DestroyWindow(hWnd);
+			
 		}
 		break;
 	}
